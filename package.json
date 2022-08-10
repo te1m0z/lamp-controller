@@ -1,0 +1,28 @@
+{
+  "name": "lamp-app",
+  "version": "1.0.0",
+  "description": "Десктоп приложение для управления процессами на Linux OS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Te1m0z/lamp-app"
+  },
+  "keywords": [
+    "nodejs",
+    "electronjs",
+    "apache2",
+    "php"
+  ],
+  "author": "Te1m0z",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Te1m0z/lamp-app/issues"
+  },
+  "homepage": "https://github.com/Te1m0z/lamp-app#readme",
+  "devDependencies": {
+    "electron": "^20.0.1"
+  }
+}
