@@ -1,10 +1,10 @@
-const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
-// Enable live reload for Electron
 require('electron-reload')(__dirname, {
     electron: require(`${__dirname}/node_modules/electron`)
 });
+
+const { app, BrowserWindow } = require('electron');
 
 function createWindow() {
 
@@ -14,7 +14,9 @@ function createWindow() {
         webPreferences: {
             preload: path.join(__dirname, 'src/windows/main/main.controller.js')
         },
-        icon: __dirname + '/src/images/icons/main.jpg'
+        icon: __dirname + '/src/images/icons/main.jpg',
+        autoHideMenuBar: true,
+        resizable: false
     });
 
     win.loadFile('src/windows/main/index.html');
