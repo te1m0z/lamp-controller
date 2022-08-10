@@ -1,24 +1,30 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
+// Enable live reload for Electron
+require('electron-reload')(__dirname, {
+    electron: require(`${__dirname}/node_modules/electron`)
+});
 
-const createWindow = function() {
+function createWindow() {
 
     const win = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
-            preload: path.join(__dirname, 'src/js/preload.js')
-        }
+            preload: path.join(__dirname, 'src/windows/main/main.controller.js')
+        },
+        icon: __dirname + '/src/images/icons/main.jpg'
     });
 
-    win.loadFile('src/html/index.html');
+    win.loadFile('src/windows/main/index.html');
+    win.openDevTools();
 }
 
-app.whenReady().then(function () {
+app.on('ready', function () {
     createWindow();
 });
 
-app.on('window-all-closed', function() {
+app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit();
 });

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Te1m0z/lamp-app#readme",
   "devDependencies": {
-    "electron": "^20.0.1"
+    "electron": "^20.0.1",
+    "electron-reload": "^2.0.0-alpha.1"
   }
 }
