@@ -7,11 +7,23 @@
     <title>LAMP Controller</title>
     <link rel="stylesheet" href="../../css/output.css" />
 </head>
-<body>
-    <div class="flex">
-        <button class="bg-yellow-500">1</button>
-        <button>2</button>
-        <button>3</button>
+<body class="">
+    <div class="flex justify-center items-center bg-slate-200 h-14 gap-x-4" id="tabs-wrapper">
+        <button data-tab="apache" class="active border-2 rounded-md py-1 px-4 hover:border-cyan-400 transition-all hover:shadow-md">Apache</button>
+        <button data-tab="php" class="border-2 rounded-md py-1 px-4 hover:border-cyan-400 transition-all hover:shadow-md">PHP</button>
     </div>
+
+    <div id="tabs-content" class="p-3">
+        <div data-tab-name="apache" class="active invisible absolute">
+            Apache tab
+        </div>
+
+        <div data-tab-name="php" class="invisible absolute">
+            PHP tab
+        </div>
+
+    </div>
+
+    <script src="./main.js"></script>
 </body>
 </html>
