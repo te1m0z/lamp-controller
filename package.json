@@ -24,8 +24,10 @@
   "homepage": "https://github.com/Te1m0z/lamp-app#readme",
   "devDependencies": {
     "concurrently": "^7.3.0",
+    "electron-reload": "^2.0.0-alpha.1"
+  },
+  "dependencies": {
     "electron": "^20.0.1",
-    "electron-reload": "^2.0.0-alpha.1",
     "tailwindcss": "^3.1.8"
   }
 }
