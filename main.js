@@ -1,29 +1,18 @@
-const path = require('path');
+const path       = require('path');
+const fs         = require('fs');
+const hotReload  = require('electron-reload');
+const electron   = require('electron');
+const appMenu    = require('./app/menu.js');
+const mainWindow = require('./app/window.js');
 
-require('electron-reload')(__dirname, {
-    electron: require(`${__dirname}/node_modules/electron`)
+hotReload(__dirname);
+
+electron.app.on('ready', function () {
+    electron.Menu.setApplicationMenu(appMenu);
+    mainWindow();
+    new electron.Tray('./src/images/icons/main.jpg');
 });
 
-const { app, BrowserWindow } = require('electron');
-
-function createWindow() {
-
-    const win = new BrowserWindow({
-        width: 800,
-        height: 600,
-        icon: __dirname + '/src/images/icons/main.jpg',
-        autoHideMenuBar: true,
-        resizable: false
-    });
-
-    win.loadFile('src/windows/main/index.html');
-    win.openDevTools();
-}
-
-app.on('ready', function () {
-    createWindow();
-});
-
-app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit();
+electron.app.on('window-all-closed', function () {
+    electron.app.quit();
 });
