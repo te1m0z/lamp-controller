@@ -1,5 +1,5 @@
 {
-  "name": "lamp-app",
+  "name": "lamp-controller",
   "version": "1.0.0",
   "description": "Десктоп приложение для управления процессами на Linux OS",
   "main": "main.js",
