@@ -1,14 +1,25 @@
 const { BrowserWindow } = require('electron');
+const main = require('@electron/remote/main');
 
 const mainWindow = function() {
     const win = new BrowserWindow({
         width: 600,
         height: 600,
-        icon: global.appDirPath + '/src/images/logo.jpg',
+        icon: __dirname + '/../src/images/logo.jpg',
         resizable: false,
         autoHideMenuBar: true,
-        frame: false
+        frame: false,
+        webPreferences: {
+            nodeIntegration: true,
+            enableRemoteModule: true,
+            contextIsolation: false
+        }
     });
+
+    console.log(main)
+
+    main.initialize();
+    main.enable(win.webContents);
 
     win.webContents.openDevTools();
     

@@ -1,19 +1,17 @@
-const fs         = require('fs');
-const hotReload  = require('electron-reload');
+const fs = require('fs');
+const reloader   = require('electron-reloader');
 const electron   = require('electron');
 const appMenu    = require('./app/menu.js');
 const mainWindow = require('./app/window.js');
 
+try {
+    reloader(module);
+} catch (_) {}
+
 global.appDirPath = electron.app.getAppPath();
 
-hotReload(global.appDirPath);
+electron.app.whenReady().then(mainWindow);
 
-electron.app.on('ready', function () {
-    electron.Menu.setApplicationMenu(appMenu);
-    mainWindow();
-    new electron.Tray('./src/images/logo.jpg');
-});
+// .then(() => new electron.Tray('./src/images/logo.jpg'))
 
-electron.app.on('window-all-closed', function () {
-    electron.app.quit();
-});
+electron.app.on('window-all-closed', () => electron.app.quit());

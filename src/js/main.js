@@ -1,22 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+const electron = require('electron');
 
-    const tabsWrapper = document.getElementById('tabs-wrapper');
-    const tabsButtons = tabsWrapper.querySelectorAll('button');
+// const win = require('electron').remote.getCurrentWindow();
+console.log(electron.remote)
+// const closeButton = document.querySelector('.button.close');
+// const minimizeButton = document.querySelector('.button.minimize');
+// const maximizeButton = document.querySelector('.button.maximize');
 
-    const tabsContent = document.getElementById('tabs-content');
-    const tabsWindows = document.querySelectorAll('#tabs-content > div');
+// let isMaximized = false;
 
-    tabsWrapper.onclick = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        if ('tab' in event.target.dataset) {
-            tabsButtons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            tabsWindows.forEach(win => win.classList.remove('active'));
-            console.log(tabsContent)
-            tabsContent.querySelector(`[data-tab-name="${event.target.dataset.tab}"]`).classList.add('active');
-        }
-    }
-});
+// closeButton.addEventListener('click', () => win.close());
+// minimizeButton.addEventListener('click', () => win.minimize());
+// maximizeButton.addEventListener('click', () => {
+//     isMaximized = !isMaximized;
+//     isMaximized ? win.unmaximize() : win.maximize();
+// });
