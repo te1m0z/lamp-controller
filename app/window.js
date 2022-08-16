@@ -2,14 +2,17 @@ const { BrowserWindow } = require('electron');
 
 const mainWindow = function() {
     const win = new BrowserWindow({
-        width: 800,
+        width: 600,
         height: 600,
-        icon: __dirname + '/../src/images/icons/main.jpg',
+        icon: global.appDirPath + '/src/images/logo.jpg',
         resizable: false,
-        // autoHideMenuBar: true,
+        autoHideMenuBar: true,
+        frame: false
     });
+
+    win.webContents.openDevTools();
     
-    win.loadFile(__dirname + '/../src/windows/main/index.html');
+    win.loadFile(global.appDirPath + '/src/windows/main/index.html');
 }
 
 module.exports = mainWindow;

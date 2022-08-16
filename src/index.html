@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAMP Controller</title>
+    <link rel="stylesheet" href="./css/output.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/libs/jquery-3.6.0.min.js"></script>
+    <script src="./js/libs/bootstrap.bundle.min.js"></script>
+</head>
+
+<body class="">
+
+    <header class="bg-primary">
+        <h1 class="fs-3 pt-2 ps-2 text-white d-inline-block">LAMP Controller</h1>
+
+        <!-- Example split danger button -->
+        <div class="btn-group">
+            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Large button
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
+    </header>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#apache">Apache</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#php">PHP</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="apache">Apache tab</div>
+        <div class="tab-pane fade" id="php">PHP tab</div>
+    </div>
+
+    <!-- <script src="./js/main.js"></script> -->
+
+    <!-- <script>
+        // #product a – селектор, выбирающий элементы a в #product (вкладки, при клике на которые нужно отображать соответствующий блок)
+        $('.nav-tabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    </script> -->
+</body>
+
+</html>

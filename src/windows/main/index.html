@@ -1,29 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAMP Controller</title>
-    <link rel="stylesheet" href="../../css/output.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head>
-<body class="">
-    <div class="flex justify-center items-center bg-slate-200 h-14 gap-x-4" id="tabs-wrapper">
-        <button data-tab="apache" class="active border-2 rounded-md py-1 px-4 hover:border-cyan-400 transition-all hover:shadow-md">Apache</button>
-        <button data-tab="php" class="border-2 rounded-md py-1 px-4 hover:border-cyan-400 transition-all hover:shadow-md">PHP</button>
+
+<body>
+
+    <nav class="navbar navbar-light bg-primary">
+        <div class="container-fluid">
+            <span class="navbar-brand d-flex align-items-center m-0 p-0">
+                LAMP Controller
+            </span>
+
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active text-white" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                        type="button" role="tab" aria-controls="pills-home" aria-selected="true">Apache</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                        type="button" role="tab" aria-controls="pills-profile" aria-selected="false">PHP</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link text-white" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                        type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Domains</button>
+                </li>
+            </ul>
+
+            <div class="dropdown">
+                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    
+                </button>
+                <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end mt-3" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item active" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Перезагрузить</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Закрыть</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">.1..
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">..2.</div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
     </div>
 
-    <div id="tabs-content" class="p-3">
-        <div data-tab-name="apache" class="active invisible absolute">
-            Apache tab
-        </div>
-
-        <div data-tab-name="php" class="invisible absolute">
-            PHP tab
-        </div>
-
-    </div>
-
-    <script src="./main.js"></script>
+    <script src="../../js/libs/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../../js/libs/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
