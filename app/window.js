@@ -9,6 +9,7 @@ const mainWindow = function() {
         resizable: false,
         autoHideMenuBar: true,
         frame: false,
+        useContentSize: true,
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
@@ -23,7 +24,9 @@ const mainWindow = function() {
 
     win.webContents.openDevTools();
     
-    win.loadFile(global.appDirPath + '/src/windows/main/index.html');
+    win.loadFile(global.appDirPath + '/src/index.html');
+
+    return win;
 }
 
 module.exports = mainWindow;

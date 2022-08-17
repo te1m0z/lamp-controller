@@ -1,7 +1,7 @@
 const electron = require('electron');
 
 // const win = require('electron').remote.getCurrentWindow();
-console.log(electron.remote)
+console.log(electron)
 // const closeButton = document.querySelector('.button.close');
 // const minimizeButton = document.querySelector('.button.minimize');
 // const maximizeButton = document.querySelector('.button.maximize');
