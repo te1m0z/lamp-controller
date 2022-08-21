@@ -1,22 +1,12 @@
 const fs = require('fs');
-const reloader   = require('electron-reloader');
-const electron   = require('electron');
-const appMenu    = require('./app/menu.js');
+const path = require('path');
+const { app } = require('electron');
 const mainWindow = require('./app/window.js');
-const remote     = require('@electron/remote/main');
+require('@electron/remote/main').initialize()
+require('electron-reload')(__dirname, {
+    electron: path.join(__dirname, 'node_modules', '.bin', 'electron')
+});
 
-// remote.initialize();
-
-try {
-    reloader(module);
-} catch (_) {}
-
-global.appDirPath = electron.app.getAppPath();
-
-electron.app.whenReady().then(mainWindow);
-
-remote.enable(mainWindow().webContents);
-
-// .then(() => new electron.Tray('./src/images/logo.jpg'))
-
-electron.app.on('window-all-closed', () => electron.app.quit());
+app.whenReady().then(function () {
+    mainWindow();
+});

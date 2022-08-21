@@ -1,16 +1,30 @@
-const electron = require('electron');
+const remote = require('@electron/remote');
+const appPath = remote.app.getAppPath();
 
-// const win = require('electron').remote.getCurrentWindow();
-console.log(electron)
-// const closeButton = document.querySelector('.button.close');
-// const minimizeButton = document.querySelector('.button.minimize');
-// const maximizeButton = document.querySelector('.button.maximize');
+const Domain = require(appPath + '/app/domains/Domain.js');
+const API = require(appPath + '/modules/API.js');
 
-// let isMaximized = false;
+const closeButton = document.getElementById('closeApp');
+const reloadButton = document.getElementById('reloadApp');
+const dev = document.getElementById('openDevTools');
 
-// closeButton.addEventListener('click', () => win.close());
-// minimizeButton.addEventListener('click', () => win.minimize());
-// maximizeButton.addEventListener('click', () => {
-//     isMaximized = !isMaximized;
-//     isMaximized ? win.unmaximize() : win.maximize();
-// });
+
+closeButton.onclick = () => remote.app.quit();
+
+reloadButton.onclick = () => {
+    remote.app.relaunch();
+    remote.app.quit();
+}
+
+dev.onclick = () => {
+    remote.getCurrentWebContents().openDevTools();
+}
+
+
+const section = new Domain();
+
+const api = new API().init();
+
+console.log(new API())
+
+document.getElementById('domains-area').innerHTML = section.fileContent;

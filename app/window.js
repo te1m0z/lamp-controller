@@ -1,11 +1,11 @@
-const { BrowserWindow } = require('electron');
-const main = require('@electron/remote/main');
+const { BrowserWindow, app } = require('electron');
 
 const mainWindow = function() {
+    
     const win = new BrowserWindow({
         width: 600,
         height: 600,
-        icon: __dirname + '/../src/images/logo.jpg',
+        icon: app.getAppPath() + '/src/images/logo.jpg',
         resizable: false,
         autoHideMenuBar: true,
         frame: false,
@@ -17,15 +17,10 @@ const mainWindow = function() {
         }
     });
 
-    console.log(main)
-
-    main.initialize();
-    main.enable(win.webContents);
-
     win.webContents.openDevTools();
-    
-    win.loadFile(global.appDirPath + '/src/index.html');
 
+    require('@electron/remote/main').enable(win.webContents);
+    win.loadFile(app.getAppPath() + '/src/index.html');
     return win;
 }
 
